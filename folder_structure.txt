@@ -1,0 +1,55 @@
+SEOFlow/
+
+│
+
+├── app.py
+
+├── config.py
+
+├── requirements.txt
+
+├── urls.csv
+
+│
+
+├── modules/
+
+│      reader.py
+
+│      sitemap.py
+
+│      caption.py
+
+│      alttext.py
+
+│      metadata.py
+
+│      internal_links.py
+
+│
+
+├── output/
+
+│      sitemap.xml
+
+│      captions.csv
+
+│      metadata.csv
+
+│
+
+└── logs/
+
+
+------------------GitHub Repository------------------
+
+SEOFlow/
+│
+├── app.py
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── sample-data/
+├── screenshots/
+├── modules/
+└── output/

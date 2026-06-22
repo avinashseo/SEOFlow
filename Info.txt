@@ -1,0 +1,18 @@
+🚀 Project: SEOFlow
+
+An AI-powered Programmatic SEO Automation Toolkit for WordPress
+
+Features
+Phase 1 (MVP)
+
+✅ Read newly generated pages from MPG CSV
+
+✅ Generate XML Sitemap
+
+✅ Generate AI social media captions
+
+✅ Generate AI ALT text
+
+✅ Generate AI Meta Description
+
+✅ Export everything to CSV
