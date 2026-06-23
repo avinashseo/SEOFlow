@@ -1,0 +1,16 @@
+{
+    "input_file": "data/input/products.csv",
+    "mapping": {
+        "name": "mpg_product_name",
+        "hero_title": "mpg_h1_title",
+        "hero_text": "mpg_text_hero",
+        "meta_title": "mpg_meta_title",
+        "meta_description": "mpg_meta_description",
+        "image_url": "mpg_image_url",
+        "image_alt": "mpg_image_alt",
+        "og_title": "mpg_og_title",
+        "og_description": "mpg_og_description",
+        "applications": "mpg_applications_text",
+        "benefits": "mpg_benefits_text"
+    }
+}

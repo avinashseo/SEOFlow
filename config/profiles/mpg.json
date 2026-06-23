@@ -1,0 +1,25 @@
+{
+    "name": "mpg_product_name",
+    "slug": "mpg_slug",
+    "url": "mpg_url",
+
+    "hero_title": "mpg_h1_title",
+    "hero_text": "mpg_text_hero",
+
+    "meta_title": "mpg_meta_title",
+    "meta_description": "mpg_meta_description",
+
+    "og_title": "mpg_og_title",
+    "og_description": "mpg_og_description",
+
+    "image_url": "mpg_image_url",
+    "image_alt": "mpg_image_alt",
+
+    "applications": "mpg_applications_text",
+    "benefits": "mpg_benefits_text",
+
+    "pack_sizes": "mpg_pack_sizes",
+    "moq": "mpg_moq",
+    "lead_time": "mpg_lead_time",
+    "shelf_life": "mpg_shelf_life"
+}
