@@ -1,0 +1,29 @@
+from src.models.product import Product
+from src.validators.duplicate_validator import DuplicateValidator
+
+
+def test_duplicate_meta_titles():
+
+    product_1 = Product(
+        name="Apple",
+        meta_title="Same Title",
+        meta_description="Description 1",
+        image_url="1.png"
+    )
+
+    product_2 = Product(
+        name="Banana",
+        meta_title="Same Title",
+        meta_description="Description 2",
+        image_url="2.png"
+    )
+
+    validator = DuplicateValidator()
+
+    results = validator.validate(
+        [product_1, product_2]
+    )
+
+    assert len(results) == 1
+
+    assert results[0].field == "meta_title"

@@ -1,10 +1,18 @@
 """
 SEOFlow Entry Point
 """
-
+from src.utils.logger import setup_logger
+from src.reports.report_generator import ReportGenerator
+from multiprocessing.reduction import duplicate
+from unittest import result
 from src.config.profile_loader import ProfileLoader
 from src.readers.csv_reader import CSVReader
 from src.mappers.product_mapper import ProductMapper
+from src.validators import duplicate_validator
+from src.validators.required_validator import RequiredValidator
+from src.validators.meta_validator import MetaValidator
+from src.validators.duplicate_validator import DuplicateValidator
+from src.validators.validation_engine  import ValidationEngine
 
 
 def main():
@@ -22,9 +30,11 @@ def main():
     # Read CSV
     reader = CSVReader("data/input/products.csv")
 
-    dataframe = reader.read()
+    dataframe = reader.read()   
 
-    print(f"✅ CSV loaded successfully")
+    logger = setup_logger()
+
+    logger.info("CSV Loaded Successfully")
     print(f"Rows found: {len(dataframe)}")
 
     # Map products
@@ -32,20 +42,51 @@ def main():
 
     products = mapper.map(dataframe)
 
-    print(f"✅ Products mapped successfully")
+    logger.info("Products mapped successfully")
     print(f"Products created: {len(products)}")
 
-    print("\nSample Product")
-    print("-" * 50)
+    # Run validation Engine
+    engine = ValidationEngine(
+        [
+            RequiredValidator(),
+            MetaValidator(), 
+            DuplicateValidator(),         
 
-    product = products[0]
+        ]
+    )
 
-    print(f"Name           : {product.name}")
-    print(f"Hero Title     : {product.hero_title}")
-    print(f"Meta Title     : {product.meta_title}")
-    print(f"Image URL      : {product.image_url}")
-    print(f"Image ALT      : {product.image_alt}")
+    results = engine.run(products)
+
+    # -------------------------------------
+    # Print Validation Report
+    # -------------------------------------
+
+    report = ReportGenerator()
+    report.generate(results)
+    
+    print(
+        "\n✅ Report exported successfully"
+    )
 
 
+
+    # print("\nVALIDATION REPORT")
+    # print("=" * 50)
+
+    # if not results:
+
+    #     print("✅ No issues found.")
+
+    # else:
+
+    #     for result in results:
+
+    #         print(
+    #             f"[{result.severity}] "
+    #             f"[{result.product}] "
+    #             f"| {result.message}"
+    #         )
+
+    
 if __name__ == "__main__":
     main()
