@@ -16,7 +16,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    step:
+    steps:
       - name: checkout repository
         uses: actions/checkout@v4
 
