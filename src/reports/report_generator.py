@@ -38,8 +38,15 @@ class ReportGenerator:
             if r.severity == "WARNING"
         )
 
+        recommendations = sum(
+            1 
+            for r in results
+            if r.severity == "RECOMMENDATION"
+        )
+
         print(f"Errors Found: {errors}")
         print(f"Warnings Found: {warnings}")
+        print(f"Recommendations : {recommendations}")
 
         print("Detailed Report")
         print("+"*50)

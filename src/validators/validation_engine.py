@@ -1,4 +1,5 @@
-from src.validators import validation_result
+from src.validators.validation_result import ValidationResult
+from src.validators.image_size_validator import (ImageSizeValidator, )
 
 
 class ValidationEngine:
@@ -11,7 +12,7 @@ class ValidationEngine:
 
         for validator in self.validators: 
             print(
-                f"Running Validator {validator.__class__.__name__}....."
+                f"🔍 Running Validator {validator.__class__.__name__}....."
             )
 
             results.extend(

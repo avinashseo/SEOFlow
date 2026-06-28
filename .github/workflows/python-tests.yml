@@ -1,33 +1,54 @@
-name: SEOFlow Tests
+name: SEOFlow CI
 
 on:
-  push:
-    branches: 
-      - main
-      - develop
 
-  pull_request: 
-    branches
-      - develop
+  push:
+    branches:
+      - main
+      - dev
+
+  pull_request:
+    branches:
+      - main
 
 
 jobs:
 
   test:
+
     runs-on: ubuntu-latest
 
+    strategy:
+
+      matrix:
+
+        python-version: ["3.12"]
+
+
     steps:
-      - name: checkout repository
+
+      - name: Checkout Repository
         uses: actions/checkout@v4
+
 
       - name: Setup Python
         uses: actions/setup-python@v5
-      
-      - name: Install Dependencies
-        run: 
-          python -m pip install --upgrade
-          pip install -r requierements.txt
 
-      - name: Run tests
-        run: 
-          pytests
+        with:
+          python-version: ${{ matrix.python-version }}
+
+
+      - name: Install Dependencies
+
+        run: |
+
+          python -m pip install --upgrade pip
+
+          pip install -r requirements.txt
+
+
+      - name: Run Tests
+
+        run: |
+
+          pytest -v

@@ -9,6 +9,7 @@ from src.config.profile_loader import ProfileLoader
 from src.readers.csv_reader import CSVReader
 from src.mappers.product_mapper import ProductMapper
 from src.validators import duplicate_validator
+from src.validators.image_size_validator import ImageSizeValidator
 from src.validators.required_validator import RequiredValidator
 from src.validators.meta_validator import MetaValidator
 from src.validators.duplicate_validator import DuplicateValidator
@@ -50,7 +51,8 @@ def main():
         [
             RequiredValidator(),
             MetaValidator(), 
-            DuplicateValidator(),         
+            DuplicateValidator(),  
+            ImageSizeValidator(),
 
         ]
     )
